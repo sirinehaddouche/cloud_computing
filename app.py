@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 
 
-st.title('Hello World!')
+st.title('Positive or Negative?')
 
 form = st.form(key='my_form')
 text = form.text_input(label='Enter some text')
@@ -21,7 +21,7 @@ output = query({"inputs" : text})
 
 
 if submit_button:
-    st.subheader('Data')
+    st.subheader('Sentiment analysis')
     
     if type(output) == type({}):        
         st.write({"Error": 'The model is loading, please try again in 30 seconds.'})
