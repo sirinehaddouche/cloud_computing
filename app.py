@@ -1,7 +1,10 @@
 import streamlit as st
+import os
+from dotenv import load_dotenv
 
 import requests
 
+load_dotenv()
 
 st.title('Positive or Negative?')
 
@@ -10,7 +13,7 @@ text = form.text_input(label='Enter some text')
 submit_button = form.form_submit_button(label='Submit')
 
 API_URL = "https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english"
-headers = {"Authorization": f"Bearer api_cSUrppuhfZtIDKYiLXEtShmyenhmlelUPe"}
+headers = {"Authorization": f"Bearer " + os.getenv('API_KEY')}
 
 def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
