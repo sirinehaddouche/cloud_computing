@@ -22,7 +22,9 @@ output = query({"inputs" : text})
 
 if submit_button:
     st.subheader('Data')
-    st.write({"text": output})
+    st.write({"negative": output[0][0]['score']})
+    st.write({"positive": output[0][1]['score']})
+
 
 
 
